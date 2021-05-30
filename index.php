@@ -4,8 +4,8 @@
     <title>TABLE</title>
     <style>
         table, th, td {
-  border: 1px solid black;
-}
+  			border: 1px solid black;
+		}
     </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     </tr>
 	<?php
 	    include('koneksi.php'); //memanggil file koneksi
-		$datas = mysqli_query($koneksi, "select * from rumah_sakit") or die(mysqli_error($koneksi));
+		$datas = mysqli_query($koneksi, "select * from pasien") or die(mysqli_error($koneksi));
 	    //script untuk menampilkan data barang
 
 		$no = 1;//untuk pengurutan nomor
@@ -45,7 +45,7 @@
     </tr>
 	<?php
 	    include('koneksi.php'); //memanggil file koneksi
-		$datas = mysqli_query($koneksi, "select * from tagihan") or die(mysqli_error($koneksi));
+		$datas = mysqli_query($koneksi, "SELECT tagihan.id, pasien.nama, tagihan.jml_bayar FROM tagihan INNER JOIN pasien ON pasien.id = tagihan.id_pasien ") or die(mysqli_error($koneksi));
 	    //script untuk menampilkan data barang
 
 		$no = 1;//untuk pengurutan nomor
